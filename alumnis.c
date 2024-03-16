@@ -4,7 +4,6 @@
 #include "list.h"
 #include "alumnis.h"
 
-
 void adicionar_aluno (Deque *Alunos) {
 
     setlocale (LC_ALL, "Portuguese_Brazil");
@@ -12,20 +11,22 @@ void adicionar_aluno (Deque *Alunos) {
     Aluno *novoAluno = (Aluno*) malloc (sizeof(Aluno));
 
         if (novoAluno == NULL) {
-            printf ("Falha na alocaÃ§Ã£o de memÃ³ria.\n");
+            printf ("Falha na alocação de memória.\n");
             return;
         }
 
     printf ("Insira os dados do aluno:\n");
 
     printf ("Nome: ");
-    scanf ("%s", novoAluno->nome);
-    printf ("Matricula: ");
-    scanf ("%d", &novoAluno->numero_matricula);
-    printf ("Curso: ");
-    scanf ("%s", novoAluno->curso);
+    scanf (" %[^\n]", novoAluno->nome);
 
-    printf ("Dia, mes e ano de nascimento no formato (dd/mm/yyyy): ");
+    printf ("Matrícula: ");
+    scanf ("%d", &novoAluno->numero_matricula);
+
+    printf ("Curso: ");
+    scanf (" %[^\n]", novoAluno->curso);
+
+    printf ("Dia, mês e ano de nascimento no formato (dd/mm/yyyy): ");
     scanf ("%02d/%02d/%04d", &novoAluno->aniversario.dia, &novoAluno->aniversario.mes, &novoAluno->aniversario.ano);
 
     insertAtBeginning (Alunos, novoAluno);
@@ -33,7 +34,11 @@ void adicionar_aluno (Deque *Alunos) {
     printf ("Aluno %d adicionado com sucesso!\n", novoAluno->numero_matricula);
 }
 
-void excluir_aluno (Deque *Alunos);
+void excluir_aluno (Deque *Alunos) {
+
+    
+
+}
 
 void listar_alunos (Deque *Alunos) {
 
@@ -48,7 +53,7 @@ void listar_alunos (Deque *Alunos) {
 
         Aluno *aluno = temp->data;
 
-        printf ("Nome: %s\nMatricula: %d\nCurso: %s\nData de nascimento: %02d/%02d/%04d\n\n", 
+        printf ("Nome: %s\nMatrícula: %d\nCurso: %s\nData de nascimento: %02d/%02d/%04d\n\n", 
         aluno->nome, aluno->numero_matricula, aluno->curso, 
         aluno->aniversario.dia, aluno->aniversario.mes, aluno->aniversario.ano);
         
@@ -60,4 +65,8 @@ void listar_alunos (Deque *Alunos) {
 
 void editar_aluno (Deque *Alunos);
 
-Aluno buscar_aluno (Deque *Alunos);
+Aluno buscar_aluno (Deque *Alunos) {
+
+
+
+}

@@ -40,7 +40,7 @@ void Menu (Deque *lista) {
             
             case 6:
                 printf ("Encerrando o programa!\n");
-                break;;
+                break;
 
             default:
                 system ("cls");
