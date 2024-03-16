@@ -57,8 +57,10 @@ int main () {
     setlocale (LC_ALL, "Portuguese_Brazil");
 
     Deque *lista_alunos = initializeList ();
+    
     Menu (lista_alunos);
 
+    destroyList (lista_alunos);
 
     return 0;
 }

@@ -1,27 +1,36 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <locale.h>
 #include "list.h"
 #include "alumnis.h"
 
+
 void adicionar_aluno (Deque *Alunos) {
 
-    Aluno novoAluno;
+    setlocale (LC_ALL, "Portuguese_Brazil");
+
+    Aluno *novoAluno = (Aluno*) malloc (sizeof(Aluno));
+
+        if (novoAluno == NULL) {
+            printf ("Falha na alocação de memória.\n");
+            return;
+        }
 
     printf ("Insira os dados do aluno:\n");
 
     printf ("Nome: ");
-    scanf ("%s", novoAluno.nome);
-    printf ("Matrícula: ");
-    scanf ("%d", &novoAluno.numero_matricula);
+    scanf ("%s", novoAluno->nome);
+    printf ("Matricula: ");
+    scanf ("%d", &novoAluno->numero_matricula);
     printf ("Curso: ");
-    scanf ("%s", novoAluno.curso);
+    scanf ("%s", novoAluno->curso);
 
-    printf ("Dia, mês e ano de nascimento no formato (dd/mm/yyyy): ");
-    scanf ("%02d/%02d/%04d", &novoAluno.aniversario.dia, &novoAluno.aniversario.mes, &novoAluno.aniversario.ano);
+    printf ("Dia, mes e ano de nascimento no formato (dd/mm/yyyy): ");
+    scanf ("%02d/%02d/%04d", &novoAluno->aniversario.dia, &novoAluno->aniversario.mes, &novoAluno->aniversario.ano);
 
-    insertAtBeginning (Alunos, &novoAluno);
+    insertAtBeginning (Alunos, novoAluno);
     system ("cls");
-    printf ("Aluno %d adicionado com sucesso!\n", novoAluno.numero_matricula);
+    printf ("Aluno %d adicionado com sucesso!\n", novoAluno->numero_matricula);
 }
 
 void excluir_aluno (Deque *Alunos);
@@ -33,7 +42,10 @@ void listar_alunos (Deque *Alunos) {
     
     Node *temp = Alunos->first;
 
+    system ("cls");
+
     while (temp != NULL) {
+
         Aluno *aluno = temp->data;
 
         printf ("Nome: %s\nMatricula: %d\nCurso: %s\nData de nascimento: %02d/%02d/%04d\n\n", 
