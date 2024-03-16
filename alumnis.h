@@ -18,17 +18,17 @@ typedef struct Aluno {
 
 void adicionar_aluno (Deque *Alunos);
 
-void excluir_aluno (Deque *Alunos);
+void buscar_aluno (Deque *Alunos);
 
 void listar_alunos (Deque *Alunos);
 
-void editar_aluno (Deque *Alunos);
+void exibir_aluno (Deque *Alunos, Aluno *aluno);
 
-void buscar_aluno (Deque *Alunos);
+void editar_aluno (Deque *Alunos);
 
 void menu_de_edicao (Deque *Alunos, Aluno *aluno);
 
-void exibir_aluno (Deque *Alunos, Aluno *aluno);
+void excluir_aluno (Deque *Alunos);
 
 
 #endif

@@ -88,6 +88,9 @@ void editar_aluno (Deque *Alunos) {
         return;
     }
 
+    listar_alunos (Alunos);
+    printf ("\n");
+
     int matricula_alvo;
 
     printf ("Digite a matrícula do aluno que quer editar: ");
@@ -119,6 +122,7 @@ void menu_de_edicao (Deque *Alunos, Aluno *aluno) {
 
     setlocale (LC_ALL, "Portuguese_Brazil");
 
+    system ("cls");
     exibir_aluno (Alunos, aluno);
 
     printf ("Escolha um campo para editar:\n");
