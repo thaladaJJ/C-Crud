@@ -10,9 +10,9 @@ typedef struct Data_de_Nascimento {
 } Data_de_Nascimento;
 
 typedef struct Aluno {
-    char nome [50];
+    char nome [100];
     int numero_matricula;
-    char curso [30];
+    char curso [50];
     Data_de_Nascimento aniversario;
 } Aluno;
 
@@ -25,6 +25,10 @@ void listar_alunos (Deque *Alunos);
 void editar_aluno (Deque *Alunos);
 
 void buscar_aluno (Deque *Alunos);
+
+void menu_de_edicao (Deque *Alunos, Aluno *aluno);
+
+void exibir_aluno (Deque *Alunos, Aluno *aluno);
 
 
 #endif

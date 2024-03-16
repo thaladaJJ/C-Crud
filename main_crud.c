@@ -36,7 +36,8 @@ void Menu (Deque *lista) {
                 break;
             
             case 5:
-
+                system("cls");
+                editar_aluno (lista);
                 break;
             
             case 6:

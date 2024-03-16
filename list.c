@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <locale.h>
 #include "list.h"
 
 Deque* initializeList () {
@@ -7,7 +8,7 @@ Deque* initializeList () {
     Deque *deque = (Deque*) malloc (sizeof (Deque));
     
     if (deque == NULL) {
-        printf ("Falha ao alocar mem√≥ria para a lista.\n");
+        printf ("Falha ao alocar memÛria para a lista.\n");
         exit (EXIT_FAILURE);
     }
 
@@ -46,7 +47,7 @@ void insertAtBeginning (Deque *d, Aluno *data) {
     Node *n = (Node*) malloc (sizeof (Node));
 
     if (n == NULL) {
-        printf ("Falha ao inserir na lista. Mem√≥ria insuficiente!");
+        printf ("Falha ao inserir na lista. MemÛria insuficiente!");
         return;
     }
 
@@ -72,7 +73,7 @@ void insertAtEnd (Deque *d, Aluno *data) {
     Node *n = (Node*) malloc (sizeof (Node));
 
     if (n == NULL) {
-        printf ("Falha ao inserir na lista. Mem√≥ria insuficiente!\n");
+        printf ("Falha ao inserir na lista. MemÛria insuficiente!\n");
         return;
     }
     
@@ -95,8 +96,10 @@ void insertAtEnd (Deque *d, Aluno *data) {
 
 void remove_beginning (Deque *d) {
 
+    setlocale (LC_ALL, "Portuguese_Brazil");
+
     if (emptyList(d)) {
-        printf ("Lista vazia, n√£o foi poss√≠vel remover.\n");
+        printf ("Lista vazia, n„o foi possÌvel remover.\n");
         return;
     }
 
@@ -114,8 +117,10 @@ void remove_beginning (Deque *d) {
 
 void remove_end (Deque *d) {
 
+    setlocale (LC_ALL, "Portuguese_Brazil");
+
     if (emptyList(d)) {
-        printf ("Lista vazia, n√£o foi poss√≠vel remover.\n");
+        printf ("Lista vazia, n„o foi possÌvel remover.\n");
         return;
     }
 
@@ -163,6 +168,8 @@ void remove_target (Deque *d, Aluno *data) {
 }
 
 void remove_target_by_matricula(Deque *d, int matricula) {
+
+    setlocale (LC_ALL, "Portuguese_Brazil");
     
     Node *temp = d->first;
 
@@ -184,11 +191,12 @@ void remove_target_by_matricula(Deque *d, int matricula) {
                 d->quantity--;
             }
 
+            printf ("Aluno %d removido com sucesso!\n\n", matricula);
             return;
         }
 
         temp = temp->next;
     }
 
-    printf("Aluno com a matr√≠cula %d n√£o encontrado na lista.\n", matricula);
+    printf("Aluno com a matrÌcula %d n„o encontrado na lista.\n", matricula);
 }
