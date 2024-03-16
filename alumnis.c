@@ -68,9 +68,7 @@ void listar_alunos (Deque *Alunos) {
 
         Aluno *aluno = temp->data;
 
-        printf ("Nome: %s\nMatrícula: %d\nCurso: %s\nData de nascimento: %02d/%02d/%04d\n\n", 
-        aluno->nome, aluno->numero_matricula, aluno->curso, 
-        aluno->aniversario.dia, aluno->aniversario.mes, aluno->aniversario.ano);
+        exibir_aluno (Alunos, aluno);
         
         temp=temp->next;
     }
@@ -206,9 +204,7 @@ void buscar_aluno (Deque *Alunos) {
 
         if (strcmp (aluno->nome, nome) == 0) {
             
-            printf ("Nome: %s\nMatrícula: %d\nCurso: %s\nData de nascimento: %02d/%02d/%04d\n\n", 
-            aluno->nome, aluno->numero_matricula, aluno->curso, 
-            aluno->aniversario.dia, aluno->aniversario.mes, aluno->aniversario.ano);
+            exibir_aluno (Alunos, aluno);
             return;
         }
 
