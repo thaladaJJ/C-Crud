@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "list.h"
 
-void initializeList () {
+Deque* initializeList () {
 
     Deque *deque = (Deque*) malloc (sizeof (Deque));
     

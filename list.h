@@ -13,7 +13,7 @@ typedef struct {
     int quantity;
 } Deque;
 
-void initializeList ();
+Deque* initializeList ();
 
 void destroyList (Deque *d);
 
