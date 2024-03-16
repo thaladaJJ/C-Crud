@@ -24,7 +24,7 @@ void listar_alunos (Deque *Alunos);
 
 void editar_aluno (Deque *Alunos);
 
-Aluno buscar_aluno (Deque *Alunos);
+void buscar_aluno (Deque *Alunos);
 
 
 #endif

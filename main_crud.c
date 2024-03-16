@@ -23,11 +23,12 @@ void Menu (Deque *lista) {
                 break;
             
             case 2:
-
+                system ("cls");
+                buscar_aluno (lista);
                 break;
             
             case 3:
-
+                excluir_aluno (lista);
                 break;
             
             case 4:

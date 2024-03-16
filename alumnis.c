@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <locale.h>
+#include <string.h>
 #include "list.h"
 #include "alumnis.h"
 
@@ -36,15 +37,30 @@ void adicionar_aluno (Deque *Alunos) {
 
 void excluir_aluno (Deque *Alunos) {
 
-    
+    printf ("Digite o número da matrícula do aluno que quer remover: ");
 
+    int num_matricula;
+    scanf ("%d", &num_matricula);
+
+    Node *temp = Alunos->first;
+    
+    while (temp != NULL) {
+
+        Aluno *aluno = temp->data;
+        if (aluno->numero_matricula = num_matricula) {
+            
+        }
+
+    }
 }
 
 void listar_alunos (Deque *Alunos) {
 
-    if (emptyList(Alunos))
+    if (emptyList(Alunos)){
+        system("cls");
         return;
-    
+    }
+
     Node *temp = Alunos->first;
 
     system ("cls");
@@ -65,8 +81,38 @@ void listar_alunos (Deque *Alunos) {
 
 void editar_aluno (Deque *Alunos);
 
-Aluno buscar_aluno (Deque *Alunos) {
+void buscar_aluno (Deque *Alunos) {
 
+    if (emptyList(Alunos)){
+        system("cls");
+        printf ("Nenhum aluno registrado!\n");
+        return;
+    }
 
+    char nome [50];
 
-}
+    printf ("Insira o nome completo do aluno desejado: ");
+    scanf (" %[^\n]", nome);
+
+    printf ("\n");
+
+    Node *temp = Alunos->first;
+
+    while (temp != NULL) {
+
+        Aluno *aluno = temp->data;
+
+        if (strcmp (aluno->nome, nome) == 0) {
+            
+            printf ("Nome: %s\nMatrícula: %d\nCurso: %s\nData de nascimento: %02d/%02d/%04d\n\n", 
+            aluno->nome, aluno->numero_matricula, aluno->curso, 
+            aluno->aniversario.dia, aluno->aniversario.mes, aluno->aniversario.ano);
+            return;
+        }
+
+        temp=temp->next;
+    }
+
+    system ("cls");
+    printf ("Aluno não encontrado!\n");
+} 
