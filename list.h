@@ -29,5 +29,9 @@ void remove_beginning (Deque *d);
 
 void remove_end (Deque *d);
 
+void remove_target (Deque *d, Aluno *data);
+
+void remove_target_by_matricula(Deque *d, int matricula);
+
 
 #endif

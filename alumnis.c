@@ -32,7 +32,7 @@ void adicionar_aluno (Deque *Alunos) {
 
     insertAtBeginning (Alunos, novoAluno);
     system ("cls");
-    printf ("Aluno %d adicionado com sucesso!\n", novoAluno->numero_matricula);
+    printf ("Aluno %d adicionado com sucesso!\n\n", novoAluno->numero_matricula);
 }
 
 void excluir_aluno (Deque *Alunos) {
@@ -42,22 +42,17 @@ void excluir_aluno (Deque *Alunos) {
     int num_matricula;
     scanf ("%d", &num_matricula);
 
-    Node *temp = Alunos->first;
-    
-    while (temp != NULL) {
+   system ("cls");
+   remove_target_by_matricula (Alunos, num_matricula);
 
-        Aluno *aluno = temp->data;
-        if (aluno->numero_matricula = num_matricula) {
-            
-        }
-
-    }
+   printf ("Aluno %d removido com sucesso!\n\n", num_matricula);
 }
 
 void listar_alunos (Deque *Alunos) {
 
-    if (emptyList(Alunos)){
+    if (emptyList(Alunos)) {
         system("cls");
+        printf ("Nenhum aluno registrado!\n\n");
         return;
     }
 
@@ -85,7 +80,7 @@ void buscar_aluno (Deque *Alunos) {
 
     if (emptyList(Alunos)){
         system("cls");
-        printf ("Nenhum aluno registrado!\n");
+        printf ("Nenhum aluno registrado!\n\n");
         return;
     }
 
@@ -114,5 +109,5 @@ void buscar_aluno (Deque *Alunos) {
     }
 
     system ("cls");
-    printf ("Aluno não encontrado!\n");
+    printf ("Aluno não encontrado!\n\n");
 } 

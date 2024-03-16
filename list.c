@@ -130,3 +130,65 @@ void remove_end (Deque *d) {
         
     d->quantity--;
 }
+
+void remove_target (Deque *d, Aluno *data) {
+
+    Node *temp = d->first;
+
+    while (temp != NULL) {
+
+        Aluno *aluno = temp->data;
+
+        if (aluno == data) {
+
+            if (temp == d->first)
+                remove_end (d);
+            
+            else if (temp == d->last)
+                remove_beginning (d);
+            
+            else {
+                temp->prev->next = temp->next;
+                temp->next->prev = temp->prev;
+                free (temp);
+                d->quantity--;
+            }
+
+            return;
+        }
+
+        temp = temp->next;
+    }
+
+}
+
+void remove_target_by_matricula(Deque *d, int matricula) {
+    
+    Node *temp = d->first;
+
+    while (temp != NULL) {
+        Aluno *aluno = temp->data;
+
+        if (aluno->numero_matricula == matricula) {
+
+            if (temp == d->first)
+                remove_beginning(d);
+            
+            else if (temp == d->last)
+                remove_end(d);
+            
+            else {
+                temp->prev->next = temp->next;
+                temp->next->prev = temp->prev;
+                free(temp);
+                d->quantity--;
+            }
+
+            return;
+        }
+
+        temp = temp->next;
+    }
+
+    printf("Aluno com a matrícula %d não encontrado na lista.\n", matricula);
+}
