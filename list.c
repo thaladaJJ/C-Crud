@@ -41,7 +41,7 @@ int sizeOfList (Deque *d) {
     return d->quantity;
 }
 
-void insertAtBeginning (Deque *d, void *data) {
+void insertAtBeginning (Deque *d, Aluno *data) {
 
     Node *n = (Node*) malloc (sizeof (Node));
 
@@ -67,7 +67,7 @@ void insertAtBeginning (Deque *d, void *data) {
     d->quantity++;
 }
 
-void insertAtEnd (Deque *d, void *data) {
+void insertAtEnd (Deque *d, Aluno *data) {
 
     Node *n = (Node*) malloc (sizeof (Node));
 

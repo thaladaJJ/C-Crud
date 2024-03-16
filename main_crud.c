@@ -31,7 +31,7 @@ void Menu (Deque *lista) {
                 break;
             
             case 4:
-
+                listar_alunos (lista);
                 break;
             
             case 5:

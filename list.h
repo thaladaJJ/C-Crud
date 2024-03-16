@@ -1,8 +1,6 @@
 #ifndef LIST_H
 #define LIST_H
 
-#include <stdlib.h>
-
 typedef struct Node {
     void *data;
     struct Node *next, *prev;
@@ -13,6 +11,8 @@ typedef struct {
     int quantity;
 } Deque;
 
+#include "alumnis.h"
+
 Deque* initializeList ();
 
 void destroyList (Deque *d);
@@ -21,9 +21,9 @@ int emptyList (Deque *d);
 
 int sizeOfList (Deque *d);
 
-void insertAtBeginning (Deque *d, void *data);
+void insertAtBeginning (Deque *d, Aluno *data);
 
-void insertAtEnd (Deque *d, void *data);
+void insertAtEnd (Deque *d, Aluno *data);
 
 void remove_beginning (Deque *d);
 
