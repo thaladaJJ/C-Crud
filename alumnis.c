@@ -5,6 +5,16 @@
 #include "list.h"
 #include "alumnis.h"
 
+#ifdef _WIN32
+    #define CLEAR_SCREEN "cls"
+#else
+    #define CLEAR_SCREEN "clear"
+#endif
+
+void limpar_tela () {
+    system (CLEAR_SCREEN);
+}
+
 void adicionar_aluno (Deque *Alunos) {
 
     setlocale (LC_ALL, "Portuguese_Brazil");
@@ -12,7 +22,7 @@ void adicionar_aluno (Deque *Alunos) {
     Aluno *novoAluno = (Aluno*) malloc (sizeof(Aluno));
 
         if (novoAluno == NULL) {
-            printf ("Falha na alocação de memória.\n");
+            printf ("Falha na alocaÃ§Ã£o de memÃ³ria.\n");
             return;
         }
 
@@ -21,48 +31,48 @@ void adicionar_aluno (Deque *Alunos) {
     printf ("Nome: ");
     scanf (" %[^\n]", novoAluno->nome);
 
-    printf ("Matrícula: ");
+    printf ("MatrÃ­cula: ");
     scanf ("%d", &novoAluno->numero_matricula);
 
     printf ("Curso: ");
     scanf (" %[^\n]", novoAluno->curso);
 
-    printf ("Dia, mês e ano de nascimento no formato (dd/mm/yyyy): ");
+    printf ("Dia, mÃªs e ano de nascimento no formato (dd/mm/yyyy): ");
     scanf ("%02d/%02d/%04d", &novoAluno->aniversario.dia, &novoAluno->aniversario.mes, &novoAluno->aniversario.ano);
 
     insertAtBeginning (Alunos, novoAluno);
-    system ("cls");
+    limpar_tela ();
     printf ("Aluno %d adicionado com sucesso!\n\n", novoAluno->numero_matricula);
 }
 
 void excluir_aluno (Deque *Alunos) {
 
     if (emptyList(Alunos)) {
-        system ("cls");
+        limpar_tela ();
         printf ("Nenhum aluno registrado!\n\n");
         return;
     }
 
-    printf ("Digite o número da matrícula do aluno que quer remover: ");
+    printf ("Digite o nÃºmero da MatrÃ­cula do aluno que quer remover: ");
 
     int num_matricula;
     scanf ("%d", &num_matricula);
 
-   system ("cls");
+   limpar_tela ();
    remove_target_by_matricula (Alunos, num_matricula);
 }
 
 void listar_alunos (Deque *Alunos) {
 
     if (emptyList(Alunos)) {
-        system("cls");
+        limpar_tela ();
         printf ("Nenhum aluno registrado!\n\n");
         return;
     }
 
     Node *temp = Alunos->first;
 
-    system ("cls");
+    limpar_tela ();
 
     while (temp != NULL) {
 
@@ -81,7 +91,7 @@ void editar_aluno (Deque *Alunos) {
     setlocale (LC_ALL, "Portuguese_Brazil");
 
     if (emptyList(Alunos)){
-        system("cls");
+        limpar_tela ();
         printf ("Nenhum aluno registrado!\n\n");
         return;
     }
@@ -91,7 +101,7 @@ void editar_aluno (Deque *Alunos) {
 
     int matricula_alvo;
 
-    printf ("Digite a matrícula do aluno que quer editar: ");
+    printf ("Digite a MatrÃ­cula do aluno que quer editar: ");
     scanf ("%d", &matricula_alvo);
     printf ("\n");
 
@@ -104,7 +114,7 @@ void editar_aluno (Deque *Alunos) {
         if (aluno->numero_matricula == matricula_alvo) {
             
             menu_de_edicao (Alunos, aluno);
-            system ("cls");
+            limpar_tela ();
             printf ("Aluno %d atualizado com sucesso!\n\n", aluno->numero_matricula);
             
             return;
@@ -113,14 +123,14 @@ void editar_aluno (Deque *Alunos) {
         temp=temp->next;
     }
 
-    printf ("Aluno não encontrado na lista.\n\n");
+    printf ("Aluno nÃ£o encontrado na lista.\n\n");
 }
 
 void menu_de_edicao (Deque *Alunos, Aluno *aluno) {
 
     setlocale (LC_ALL, "Portuguese_Brazil");
 
-    system ("cls");
+    limpar_tela ();
     exibir_aluno (Alunos, aluno);
 
     printf ("Escolha um campo para editar:\n");
@@ -129,7 +139,7 @@ void menu_de_edicao (Deque *Alunos, Aluno *aluno) {
     
        while (option != 5) {
         
-        printf ("1. Nome\n2. Matrícula\n3. Curso\n4. Data de Nascimento\n5. Sair\n");
+        printf ("1. Nome\n2. MatrÃ­cula\n3. Curso\n4. Data de Nascimento\n5. Sair\n");
         
         scanf ("%d", &option);
 
@@ -139,31 +149,31 @@ void menu_de_edicao (Deque *Alunos, Aluno *aluno) {
                 printf ("Nome: ");
                 scanf (" %[^\n]", aluno->nome);
 
-                system ("cls");
+                limpar_tela ();
                 printf ("Nome atualizado!\n\n");
                 break;
             
             case 2:
-                printf ("Matrícula: ");
+                printf ("MatrÃ­cula: ");
                 scanf ("%d", &aluno->numero_matricula);
                 
-                system ("cls");
-                printf ("Matrícula atualizada!\n\n");
+                limpar_tela ();
+                printf ("MatrÃ­cula atualizada!\n\n");
                 break;
             
             case 3:
                 printf ("Curso: ");
                 scanf (" %[^\n]", aluno->curso);
 
-                system ("cls");
+                limpar_tela ();
                 printf ("Curso atualizado!\n\n");
                 break;
             
             case 4:
-                printf ("Dia, mês e ano de nascimento no formato (dd/mm/yyyy): ");
+                printf ("Dia, mÃªs e ano de nascimento no formato (dd/mm/yyyy): ");
                 scanf ("%02d/%02d/%04d", &aluno->aniversario.dia, &aluno->aniversario.mes, &aluno->aniversario.ano);
                 
-                system ("cls");
+                limpar_tela ();
                 printf ("Data de nascimento atualizada!\n\n");
                 break;
             
@@ -171,8 +181,8 @@ void menu_de_edicao (Deque *Alunos, Aluno *aluno) {
                 break;
             
             default:
-                system ("cls");
-                printf ("Opção inválida.\n\n");
+                limpar_tela ();
+                printf ("OpÃ§Ã£o invÃ¡lida.\n\n");
                 break;
         }
 
@@ -184,7 +194,7 @@ void menu_de_edicao (Deque *Alunos, Aluno *aluno) {
 void buscar_aluno (Deque *Alunos) {
 
     if (emptyList(Alunos)){
-        system("cls");
+        limpar_tela ();
         printf ("Nenhum aluno registrado!\n\n");
         return;
     }
@@ -211,13 +221,13 @@ void buscar_aluno (Deque *Alunos) {
         temp=temp->next;
     }
 
-    system ("cls");
-    printf ("Aluno não encontrado!\n\n");
+    limpar_tela ();
+    printf ("Aluno nÃ£o encontrado!\n\n");
 }
 
 void exibir_aluno (Deque *Alunos, Aluno *aluno) {
 
-    printf ("Nome: %s\nMatrícula: %d\nCurso: %s\nData de nascimento: %02d/%02d/%04d\n\n", 
+    printf ("Nome: %s\nMatrÃ­cula: %d\nCurso: %s\nData de nascimento: %02d/%02d/%04d\n\n", 
     aluno->nome, aluno->numero_matricula, aluno->curso, 
     aluno->aniversario.dia, aluno->aniversario.mes, aluno->aniversario.ano);
 }

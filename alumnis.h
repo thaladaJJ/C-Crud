@@ -4,9 +4,9 @@
 #include "list.h"
 
 typedef struct Data_de_Nascimento {
-    short int dia;
-    short int mes;
-    short int ano;
+    int dia;
+    int mes;
+    int ano;
 } Data_de_Nascimento;
 
 typedef struct Aluno {
@@ -15,6 +15,8 @@ typedef struct Aluno {
     char curso [50];
     Data_de_Nascimento aniversario;
 } Aluno;
+
+void limpar_tela ();
 
 void adicionar_aluno (Deque *Alunos);
 

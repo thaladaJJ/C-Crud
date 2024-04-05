@@ -18,12 +18,12 @@ void Menu (Deque *lista) {
 
         switch (option) {
             case 1:
-                system ("cls");
+                limpar_tela ();
                 adicionar_aluno (lista);
                 break;
             
             case 2:
-                system ("cls");
+                limpar_tela ();
                 buscar_aluno (lista);
                 break;
             
@@ -36,7 +36,7 @@ void Menu (Deque *lista) {
                 break;
             
             case 5:
-                system("cls");
+                limpar_tela ();
                 editar_aluno (lista);
                 break;
             
@@ -45,8 +45,8 @@ void Menu (Deque *lista) {
                 break;
 
             default:
-                system ("cls");
-                printf ("Opção inválida.\n");
+                limpar_tela ();
+                printf ("opção inválida.\n");
                 break;
         }
     }
