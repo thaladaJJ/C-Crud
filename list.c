@@ -8,7 +8,7 @@ Deque* initializeList () {
     Deque *deque = (Deque*) malloc (sizeof (Deque));
     
     if (deque == NULL) {
-        printf ("Falha ao alocar memória para a lista.\n");
+        printf ("Falha ao alocar memï¿½ria para a lista.\n");
         exit (EXIT_FAILURE);
     }
 
@@ -26,10 +26,6 @@ void destroyList (Deque *d) {
         d->first = d->first->next;
         free (temp);
     }
-
-    d->first = NULL;
-    d->last = NULL;
-    d->quantity = 0;
 }
 
 int emptyList (Deque *d) {
@@ -47,7 +43,7 @@ void insertAtBeginning (Deque *d, Aluno *data) {
     Node *n = (Node*) malloc (sizeof (Node));
 
     if (n == NULL) {
-        printf ("Falha ao inserir na lista. Memória insuficiente!");
+        printf ("Falha ao inserir na lista. MemÃ³ria insuficiente!");
         return;
     }
 
@@ -73,7 +69,7 @@ void insertAtEnd (Deque *d, Aluno *data) {
     Node *n = (Node*) malloc (sizeof (Node));
 
     if (n == NULL) {
-        printf ("Falha ao inserir na lista. Memória insuficiente!\n");
+        printf ("Falha ao inserir na lista. MemÃ³ria insuficiente!\n");
         return;
     }
     
@@ -99,7 +95,7 @@ void remove_beginning (Deque *d) {
     setlocale (LC_ALL, "Portuguese_Brazil");
 
     if (emptyList(d)) {
-        printf ("Lista vazia, não foi possível remover.\n");
+        printf ("Lista vazia, nï¿½o foi possï¿½vel remover.\n");
         return;
     }
 
@@ -120,7 +116,7 @@ void remove_end (Deque *d) {
     setlocale (LC_ALL, "Portuguese_Brazil");
 
     if (emptyList(d)) {
-        printf ("Lista vazia, não foi possível remover.\n");
+        printf ("Lista vazia, nï¿½o foi possï¿½vel remover.\n");
         return;
     }
 
@@ -198,5 +194,5 @@ void remove_target_by_matricula(Deque *d, int matricula) {
         temp = temp->next;
     }
 
-    printf("Aluno com a matrícula %d não encontrado na lista.\n", matricula);
+    printf("Aluno com a matrï¿½cula %d nï¿½o encontrado na lista.\n", matricula);
 }

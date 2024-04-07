@@ -5,9 +5,9 @@
 #include "list.h"
 #include "alumnis.h"
 
-void Menu (Deque *lista) {
+void Menu (Deque *lista) {  
 
-    printf ("Bem vindo ao menu de Alunos. Escolha uma opÁ„o:\n");
+    printf ("Bem vindo ao menu de Alunos. Escolha uma op√ß√£o:\n");
     int option = 0;
     
        while (option != 6) {
@@ -18,12 +18,12 @@ void Menu (Deque *lista) {
 
         switch (option) {
             case 1:
-                system ("cls");
+                system ("clear");
                 adicionar_aluno (lista);
                 break;
             
             case 2:
-                system ("cls");
+                system ("clear");
                 buscar_aluno (lista);
                 break;
             
@@ -36,7 +36,7 @@ void Menu (Deque *lista) {
                 break;
             
             case 5:
-                system("cls");
+                system("clear");
                 editar_aluno (lista);
                 break;
             
@@ -45,14 +45,13 @@ void Menu (Deque *lista) {
                 break;
 
             default:
-                system ("cls");
-                printf ("OpÁ„o inv·lida.\n");
+                system ("clear");
+                printf ("Op√ß√£o inv√°lida.\n");
                 break;
         }
     }
 
 }
-
 
 int main () {
 
